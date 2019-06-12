@@ -1,8 +1,22 @@
 import React from 'react'
 class App extends React.Component{
+  constructor (props) {
+    super(props);
+    this.state = {
+      list: ['a','b','c','e']  //单层循环
+    }
+  }
   render () {
     return (
-      <div>我是一个小仙女</div>
+      <ul>
+        {
+          this.state.list.map((item, index) => {
+            return (
+              <li key={ index }>{ item }</li>
+            )
+          })
+        }
+      </ul>
     )
   }
 }
