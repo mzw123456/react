@@ -16,18 +16,23 @@ class App extends React.Component{
     }
   }
   render () {
-    let arr = [];
-    this.state.list.map((item, index) => {
-      let arr2 = []
-      item.data.map((itm, idx) => {
-        arr2.push (<li key={ idx }>{itm}</li>) 
-      })
-      let oli = (<li key={ index }>{item.title}<ul>{arr2}</ul></li>)
-      arr.push(oli)
-    })
     return (
       <ul>
-          {arr}
+        {
+          this.state.list.map((item, index)=> {
+            return (
+            <li key={ index }>
+            { item.title }
+              <ul>
+                {
+                  item.data.map((itm, idx) => {
+                    return (<li key={ idx }>{ itm }</li>)
+                  })
+                }
+              </ul>
+            </li>)
+          })
+        }
       </ul>
     )
   }
