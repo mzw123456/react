@@ -1,29 +1,35 @@
-//通过事件去修改状态
-import React, { Component } from 'react'
+//生命周期钩子函数修改状态，数据请求
+import React, { Component } from  'react'
 class App extends Component {
   constructor (props) {
-    super(props);
+    super (props)
     this.state = {
-      msg: 'hello world'
+      list: []
     }
   }
-  changeData () {
-    this.setState ({
-      msg: 'hello msg'
+componentDidMount () {
+  fetch ('http://www.daxunxun.com/douban').then(res => res.json()).then(data=> {
+    console.log(data)
+    this.setState({
+      list: data
     })
-  }
+  })
+}
+
+
+
+
   render () {
     return (
-      <div>
-      { this.state.msg }
-      <button onClick ={() => 
-      {
-        this.setState ({
-          msg: 'hello msg'}) 
-      }
-      }>点击我改变状态</button>          
-      </div>
+      <ul>
+        {
+          this.state.list.map(item=> {
+            return (<li key={item.id}>{item.title}</li>)
+          })
+        }
+      </ul>
     )
   }
 }
+
 export default App
