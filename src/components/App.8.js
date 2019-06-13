@@ -4,13 +4,13 @@ class App extends Component {
     super(props)
     console.log(1,this)
   }
-  fn (id) {
-    console.log(2,this,id)
+  fn () {
+    console.log(2,this)
   }
   render () {
     return (
       <div>
-        <button onClick={this.fn.bind(this, 1)}>我是一个按钮</button>
+        <button onClick={this.fn.bind(this)}>我是一个按钮</button>
       </div>
     )
   }
