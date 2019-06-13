@@ -1,18 +1,27 @@
-import React, { Component } from  'react'
-class App extends Component {
+import React, { Component } from 'react';
+
+class Com extends Component {
   constructor (props) {
-    super(props)
-    console.log(1,this)
+    super(props);
+    console.log('1', this); 
   }
-  fn (id) {
-    console.log(2,this,id)
+
+  btnClickFn (event, id) {
+    console.log(event,id);
   }
+
+  /**
+   * <button onClick = { function (e) {return this.btnClickFn(e) } }>react按钮</button>
+   */
   render () {
+    // const _this = this
     return (
       <div>
-        <button onClick={this.fn.bind(this, 1)}>我是一个按钮</button>
+        <button onClick = { (e) => this.btnClickFn(e, 22) }>react按钮</button>
       </div>
     )
   }
 }
-export default App
+// const com = new Com()
+// com.btnClickFn()
+export default Com;
