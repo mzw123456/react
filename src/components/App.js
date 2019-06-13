@@ -1,27 +1,24 @@
-import React, { Component } from 'react';
-
-class Com extends Component {
+//通过事件去修改状态
+import React, { Component } from 'react'
+class App extends Component {
   constructor (props) {
     super(props);
-    console.log('1', this); 
+    this.state = {
+      msg: 'hello world'
+    }
   }
-
-  btnClickFn (event, id) {
-    console.log(event,id);
+  changeData () {
+    this.setState ({
+      msg: 'hello msg'
+    })
   }
-
-  /**
-   * <button onClick = { function (e) {return this.btnClickFn(e) } }>react按钮</button>
-   */
   render () {
-    // const _this = this
     return (
       <div>
-        <button onClick = { (e) => this.btnClickFn(e, 22) }>react按钮</button>
+      { this.state.msg }
+      <button onClick ={this.changeData.bind(this)}>点击我改变状态</button>          
       </div>
     )
   }
 }
-// const com = new Com()
-// com.btnClickFn()
-export default Com;
+export default App
