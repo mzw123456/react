@@ -16,7 +16,7 @@ class App extends Component {
     return (
       <div>
       { this.state.msg }
-      <button onClick ={(e) => this.changeData(e)}>点击我改变状态</button>          
+      <button onClick ={this.changeData.bind(this)}>点击我改变状态</button>          
       </div>
     )
   }
