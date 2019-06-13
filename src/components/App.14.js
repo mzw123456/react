@@ -1,6 +1,5 @@
-//生命周期钩子函数修改状态，数据请求,带有样式
+//生命周期钩子函数修改状态，数据请求
 import React, { Component } from  'react'
-import '@/main.scss'
 class App extends Component {
   constructor (props) {
     super (props)
@@ -22,7 +21,7 @@ componentDidMount () {
 
   render () {
     return (
-      <ul className='list'>
+      <ul>
         {
           this.state.list.map(item=> {
             return (<li key={item.id}>{item.title}</li>)
